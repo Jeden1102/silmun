@@ -201,9 +201,15 @@
 import { ref, computed, onMounted } from "vue";
 import dbService from "../services/dbService.js";
 import { useToast } from "vue-toastification";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  LinearScale,
+} from "chart.js";
 import { Pie } from "vue-chartjs";
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, LinearScale);
 const attendants = ref([]);
 const toast = useToast();
 const filterString = ref("");
