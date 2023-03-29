@@ -19,6 +19,7 @@ function addAttendant() {
   attendants.forEach((attendant) => {
     const attendantObj = {
       name: attendant,
+      agreement: false,
       th: {
         absence: false,
         reportedAbsence: false,
@@ -54,7 +55,7 @@ function addAttendant() {
 <style >
 .card {
   background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.17);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;

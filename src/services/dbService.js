@@ -5,7 +5,7 @@ const db = firebase.ref("/silmun");
 class dbService {
     getAll(field, value) {
         if (!value || value === "") {
-            return db.orderByChild("name");
+            return db.orderByChild("name")
         }
         const searchQuery = value
         return db.orderByChild(field).

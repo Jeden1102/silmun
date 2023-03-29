@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import AddAttendant from '../views/AddAttendant.vue'
 import AttendantList from '../views/AttendantList.vue'
+import Agreements from '../views/Agreements.vue'
 import Event from '../views/Event.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -18,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/event',
     name: 'event',
     component: Event
+  },
+  {
+    path: '/agreements',
+    name: 'agreements',
+    component: Agreements
   },
 ]
 

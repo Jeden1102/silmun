@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>Lista uczestników:</h2>
-    *zaznacz checkbox, jeśli osoba zgłosiła nieobecność na dany dzień.
+    <h2>Zgodny:</h2>
+    *zaznacz checkbox, jeśli osoba oddała zgodę uczestnictwa.
     <div class="search">
       <label for="">Wyszukaj</label>
       <input
@@ -16,10 +16,7 @@
         <thead>
           <tr>
             <th>Imię i nazwisko</th>
-            <th>czwartek</th>
-            <th>piątek</th>
-            <th>sobota</th>
-            <th>akcje</th>
+            <th>zgoda</th>
           </tr>
         </thead>
         <tbody>
@@ -28,40 +25,13 @@
             <td>
               <div class="checkbox-wrapper">
                 <input
-                  :id="attendant.key + 'th'"
+                  :id="attendant.key + 'agreement'"
                   type="checkbox"
                   class="switch"
-                  :checked="attendant.th.reportedAbsence"
-                  @change="setAbsence(attendant.key, 'th', attendant)"
+                  :checked="attendant.agreement"
+                  @change="setAgreement(attendant.key, attendant)"
                 />
               </div>
-            </td>
-            <td>
-              <div class="checkbox-wrapper">
-                <input
-                  :id="attendant.key + 'fr'"
-                  type="checkbox"
-                  class="switch"
-                  :checked="attendant.fr.reportedAbsence"
-                  @change="setAbsence(attendant.key, 'fr', attendant)"
-                />
-              </div>
-            </td>
-            <td>
-              <div class="checkbox-wrapper">
-                <input
-                  :id="attendant.key + 'sat'"
-                  type="checkbox"
-                  class="switch"
-                  :checked="attendant.sat.reportedAbsence"
-                  @change="setAbsence(attendant.key, 'sat', attendant)"
-                />
-              </div>
-            </td>
-            <td>
-              <button @click="removePage(attendant.key)" class="danger">
-                Usuń
-              </button>
             </td>
           </tr>
         </tbody>
@@ -101,25 +71,12 @@ function onDataChange(items) {
 function filterResults() {
   dbService.getAll("name", filterString.value).on("value", onDataChange);
 }
-function setAbsence(key, day, currentObj) {
-  currentObj[day]["reportedAbsence"] = event.target.checked;
-  console.log(currentObj);
+function setAgreement(key, currentObj) {
+  currentObj.agreement = event.target.checked;
   dbService
     .update(key, currentObj)
     .then(() => {
       toast.info("Pomyślnie zmieniono status!", {
-        timeout: 3000,
-      });
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-}
-function removePage(key) {
-  dbService
-    .delete(key)
-    .then(() => {
-      toast.info("Pomyślnie usunięto page!", {
         timeout: 3000,
       });
     })

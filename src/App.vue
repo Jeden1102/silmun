@@ -15,6 +15,14 @@
         />
       </svg>
     </router-link>
+    <router-link :to="{ name: 'agreements' }">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+        <path
+          d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM80 64h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16s7.2-16 16-16zm54.2 253.8c-6.1 20.3-24.8 34.2-46 34.2H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h8.2c7.1 0 13.3-4.6 15.3-11.4l14.9-49.5c3.4-11.3 13.8-19.1 25.6-19.1s22.2 7.7 25.6 19.1l11.6 38.6c7.4-6.2 16.8-9.7 26.8-9.7c15.9 0 30.4 9 37.5 23.2l4.4 8.8H304c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-6.1 0-11.6-3.4-14.3-8.8l-8.8-17.7c-1.7-3.4-5.1-5.5-8.8-5.5s-7.2 2.1-8.8 5.5l-8.8 17.7c-2.9 5.9-9.2 9.4-15.7 8.8s-12.1-5.1-13.9-11.3L144 349l-9.8 32.8z"
+        />
+      </svg>
+    </router-link>
     <router-link :to="{ name: 'add' }">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
         <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -55,6 +63,7 @@ onMounted(() => {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   max-height: 100vh;
+  font-size: 14px;
 }
 .Vue-Toastification__icon,
 .Vue-Toastification__toast-body {
@@ -65,12 +74,13 @@ onMounted(() => {
   }
 }
 .app-view {
-  width: 90%;
+  width: 99%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px;
 
   padding-bottom: 100px;
   overflow-x: hidden;
+  max-width: 1200px;
 }
 nav {
   background: #032854;
@@ -78,7 +88,10 @@ nav {
   align-items: center;
   justify-content: center;
   gap: 30px;
-  padding: 15px 0;
+  padding: 10px 0;
+  img {
+    height: 70px;
+  }
   h1 {
     color: white;
   }
@@ -90,7 +103,7 @@ nav {
   border-radius: 14px 14px 0 0;
   box-shadow: 1px -21px 83px -40px #42445a;
   display: flex;
-  height: 100px;
+  height: 70px;
   gap: 20px;
   width: 100%;
   align-items: center;
@@ -98,22 +111,21 @@ nav {
   background: white;
   a {
     font-weight: bold;
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     color: white;
     display: grid;
     place-content: center;
     border-radius: 12px;
-    padding: 15px;
     background: #eef0ff;
-    padding: 17px;
+    padding: 10px;
     border-radius: 15px;
     color: #7996ed;
     svg {
       fill: #7996ed;
     }
     svg {
-      height: 40px;
+      height: 25px;
     }
     &.router-link-exact-active {
       background: #7996ed;
@@ -255,6 +267,8 @@ input[type="text"] {
     rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px,
     rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
     rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+  border: 1px solid gray;
+  min-width: 300px;
   border-radius: 4px;
   font-size: 14px;
   line-height: 20px;
